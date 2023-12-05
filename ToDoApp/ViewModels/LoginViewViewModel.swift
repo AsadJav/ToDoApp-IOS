@@ -25,14 +25,11 @@ class LoginViewViewModel: ObservableObject{
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                     if let error = error {
-                        //print("Sign-in error: \(error.localizedDescription)")
                         self!.errorMessage = "Sign-in Error: Invalid email or password"
                         return
                     }
                     self?.router.navigate(to: .home)
                 }
-        
-        
     }
     
     func validate() -> Bool{
